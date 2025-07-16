@@ -11,6 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+
+      this.belongsToMany(models.Foto, { through: 'fotoetiquetas', foreignKey: 'etiqueta_id' });
     }
   }
   etiqueta.init({
@@ -18,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'etiqueta',
-    tableName: 'etiquetas',
+    tableName: 'etiqueta',
   });
   return etiqueta;
 };

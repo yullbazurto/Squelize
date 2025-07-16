@@ -21,6 +21,7 @@
           <th>Descripción</th>
           <th>Calificación</th>
           <th>Imagen</th>
+          <th>Etiquetas</th> <!-- ✅ nueva columna -->
         </tr>
       </thead>
       <tbody>
@@ -30,7 +31,18 @@
             <td><%= foto.titulo %></td>
             <td><%= foto.descripcion %></td>
             <td><%= foto.calificacion %></td>
-           <td><img src="/images/<%= foto.ruta %>" alt="Foto" class="img-thumbnail" style="width:100px;"></td>
+            <td><img src="/images/<%= foto.ruta %>" alt="Foto" class="img-thumbnail" style="width:100px;"></td>
+            <td>
+              <% if (foto.etiqueta && foto.etiqueta.length > 0) { %>
+                <% foto.etiqueta.forEach(et => { %>
+                  <span class="badge bg-info text-dark"><%= et.texto %></span>
+                <% }) %>
+              <% } else { %>
+                <span class="text-muted">Sin etiquetas</span>
+              <% } %>
+
+
+            </td>
           </tr>
         <% }) %>
       </tbody>
