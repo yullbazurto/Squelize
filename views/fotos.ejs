@@ -21,7 +21,8 @@
           <th>Descripción</th>
           <th>Calificación</th>
           <th>Imagen</th>
-          <th>Etiquetas</th> <!-- ✅ nueva columna -->
+          <th>Etiquetas</th>
+          <th>Acciones</th> <!-- ✅ nueva columna para botón -->
         </tr>
       </thead>
       <tbody>
@@ -40,8 +41,9 @@
               <% } else { %>
                 <span class="text-muted">Sin etiquetas</span>
               <% } %>
-
-
+            </td>
+            <td>
+              <a href="/fotos/<%= foto.id %>/view" class="btn btn-sm btn-primary">Ver más</a>
             </td>
           </tr>
         <% }) %>
